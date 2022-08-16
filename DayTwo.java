@@ -5,6 +5,7 @@ public class DayTwo {
 
     static int HORIZONTAL = 0;
     static int DEPTH = 0;
+    static int AIM = 0;
 
     public static void handleData(String[] data) {
         String direction = data[0];
@@ -13,13 +14,17 @@ public class DayTwo {
         switch (direction) {
             case "forward":
                 HORIZONTAL = HORIZONTAL + value;
+                DEPTH = DEPTH + AIM * value; 
+                System.out.println("Forward command -- " + "Horizontal: " + HORIZONTAL + " DEPTH: " + DEPTH);
                 break;
             case "down":
-                DEPTH = DEPTH + value;
+                AIM = AIM + value;
+                System.out.println("Down command-- AIM IS: " +AIM);
                 break;
 
             case "up":
-                DEPTH = DEPTH - value;
+                AIM = AIM - value;
+                System.out.println("up command-- AIM IS: " +AIM);
                 break;
 
             default:
@@ -40,6 +45,7 @@ public class DayTwo {
         }
 
         System.out.println(HORIZONTAL * DEPTH);
+        reader.close();
 
     }
 }
